@@ -29,35 +29,7 @@ class App extends Component {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     },
-    "tabBar": {
-      "color": "black",
-      "selectedColor": "white",
-      "borderStyle": "white",
-      "backgroundColor": "white",
-      "list": [
-        {
-          "pagePath": "pages/index/index",
-          "iconPath": "",
-          "selectedIconPath": "",
-          "text": "首页"
-        },
-        {
-          "pagePath": "pages/mine/index",
-          "iconPath": "",
-          "selectedIconPath": "",
-          "text": "我的"
-        }
-      ]
-    },
   }
-
-  componentDidMount () {}
-
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  componentDidCatchError () {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数

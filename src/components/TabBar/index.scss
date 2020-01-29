@@ -1,0 +1,35 @@
+.tab-bar {
+    position        : fixed;
+    width           : 100%;
+    bottom          : 0;
+    display         : flex;
+    justify-content : space-around;
+    background-color: rgba(255, 255, 255, .3);
+
+    transition: all .8s;
+    
+    .tab-bar__items {
+        display       : flex;
+        flex-direction: column;
+        padding       : 20px 0;
+        text-align    : center;
+
+        .icon {
+            font-size: 38px;
+        }
+
+        .text {}
+    }
+
+    .active {
+        color: #ff7e35;
+    }
+}
+
+.show {
+    transform: translateY(0%)
+}
+
+.hide {
+    transform: translateY(100%) !important;
+}
