@@ -6,7 +6,9 @@ import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
 
 
-@inject('counterStore')
+@inject(stores => ({
+  userInfo: stores.counterStore.userInfo
+}))
 @observer
 class Index extends Component {
 
@@ -15,15 +17,35 @@ class Index extends Component {
     navigationStyle: 'custom',
   };
 
-
+  componentDidMount() {
+    console.log(this.props)
+  }
   render() {
-    const { counterStore: { counter } } = this.props;
+    const { userInfo } = this.props;
+    const { avatarUrl, nickName, gender } = userInfo.userInfo;
     return (
       <Layout isShowNavgate={true} isBack={true} isShowTab={true} title='个人中心'>
         <Image src='../../assets/image/mine-bg.png' className='mine-bg' />
         <View className='mine'>
-          
-      </View>
+          <View className='info'>
+            <Image className='img' src={avatarUrl} />
+            <View className='userinfo'>
+              <Text><Text className='name'>{nickName}</Text>,欢迎您！</Text>
+              <Text>性别: {gender === 1 ? '男' : '女'}</Text>
+            </View>
+          </View>
+          <View className='count-info'>
+            <View>
+              <Text>积分</Text>
+              <Text>0</Text>
+            </View>
+            <Text className='line' />
+            <View>
+              <Text>余额</Text>
+              <Text>0.00</Text>
+            </View>
+          </View>
+        </View>
       </Layout>
 
     )

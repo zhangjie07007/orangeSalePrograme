@@ -51,7 +51,6 @@ initTabBar= () => {
     })
 }
 
-
 toTabBar =e=>{
     this.setState({
         isShowTab:false

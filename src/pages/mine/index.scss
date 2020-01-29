@@ -1,7 +1,63 @@
-.mine-bg{
+.mine-bg {
     position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+    top     : 0;
+    width   : 100%;
+    height  : 100%;
+    z-index : -1;
+}
+
+.mine {
+    .info {
+        display: flex;
+        padding: 180px 0 0 60px;
+
+        .img {
+            width        : 120px;
+            height       : 120px;
+            border-radius: 50%;
+            box-shadow   : 0 10px 15px #999;
+        }
+
+        .userinfo {
+            font-size     : 32px;
+            padding-top   : 10px;
+            margin-left   : 40px;
+            display       : flex;
+            flex-direction: column;
+
+            .name {
+                font-weight: 600;
+                display       : inline-block;
+                color         : #ff7e35;
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    .count-info {
+        background-color: #fff;
+        display         : flex;
+        justify-content : space-around;
+        padding: 15px 0 0;
+        margin-top: 30px;
+        box-shadow: 0 10px 15px #f2f2f2;
+        .line{
+            display: inline-block;
+            width: 2px;
+            height: 90px;
+            background-color: #ddd;
+            position: relative;
+            top: 5px;
+        }
+        view{
+            text-align: center;
+            display: flex;
+            flex-direction:column ;
+            width: 100px;
+            line-height: 40px;
+            text:nth-of-type(2){
+                color: #ff4400;
+            }
+        }
+    }
 }

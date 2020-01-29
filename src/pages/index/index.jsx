@@ -4,26 +4,28 @@ import TabBar from '../../components/TabBar'
 import NavgateBar from '../../components/navgateBar'
 import Layout from '../../components/Layout'
 import {observer, inject} from '@tarojs/mobx'
-
 import './index.scss'
 
 
-@inject('counterStore')
+@inject((stores)=>({
+  userInfo:stores.counterStore.userInfo
+}))
 @observer
 class Index extends Component {
-
-
 
   componentWillMount() {
   }
 
-
-
-
   componentDidMount() {
-  }
-
-  componentWillUnmount() {
+    const {userInfo} = this.props;
+    const {getUserInfo} = userInfo;
+    getUserInfo()
+    Taro.navigateTo({
+      url:'/pages/mine/index'
+    })
+    // Taro.getUserInfo().then(res=>{
+    //   console.log(res)
+    // })
   }
 
   config = {
@@ -31,29 +33,9 @@ class Index extends Component {
     navigationStyle:'custom',
   };
 
-  componentDidShow() {
-  }
-
-  componentDidHide() {
-  }
-
-  increment = () => {
-    const {counterStore} = this.props;
-    counterStore.increment()
-  };
-
-  decrement = () => {
-    const {counterStore} = this.props;
-    counterStore.decrement()
-  };
-
-  incrementAsync = () => {
-    const {counterStore} = this.props;
-    counterStore.incrementAsync()
-  };
-
+  
   render() {
-    const {counterStore: {counter}} = this.props;
+    const {} = this.props;
     return (
       <Layout isShowTab={true}  isShowNavgate={true} title='卖橘子的小菇凉'>
       <View className='index'>
