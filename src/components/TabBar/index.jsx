@@ -80,7 +80,7 @@ componentDidShow() {
 
   render() {
     const {counterStore: {counter}} = this.props;
-    const {tabParmas,selected,isShowTab} = this.state;
+    const {tabParmas,selected,isShowTab} = this.state
     return (
       <View className={`tab-bar ${isShowTab?'show':'hide'}`}>
        <View className={`tab-bar__items ${selected==='home'?'active':''}`} id='home' onClick={this.toTabBar}>
