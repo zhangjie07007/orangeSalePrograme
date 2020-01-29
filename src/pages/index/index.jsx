@@ -55,7 +55,7 @@ class Index extends Component {
   render() {
     const {counterStore: {counter}} = this.props;
     return (
-      <Layout isShowTab={true} isShowNavgate={true} title='卖橘子的小菇凉'>
+      <Layout isShowTab={true}  isShowNavgate={true} title='卖橘子的小菇凉'>
       <View className='index'>
         <Image className='bg' src='../../assets/image/background-img.png' />
       </View>

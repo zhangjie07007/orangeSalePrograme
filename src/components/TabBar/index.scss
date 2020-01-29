@@ -6,7 +6,7 @@
     justify-content : space-around;
     background-color: rgba(255, 255, 255, .3);
 
-    transition: all .8s;
+    transition: all .6s;
     
     .tab-bar__items {
         display       : flex;
@@ -15,10 +15,12 @@
         text-align    : center;
 
         .icon {
-            font-size: 38px;
+            font-size: 42px;
         }
 
-        .text {}
+        .text {
+            font-size: 28px;
+        }
     }
 
     .active {

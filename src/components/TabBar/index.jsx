@@ -88,7 +88,7 @@ componentDidShow() {
             <Text>首页</Text>
         </View>
         <View className={`tab-bar__items ${selected==='mine'?'active':''}`} id='mine' onClick={this.toTabBar}>
-            <Text className='iconfont icon'>&#xe67d;</Text>
+            <Text className='iconfont icon'>&#xe6ae;</Text>
             <Text className='text'>个人中心</Text>
         </View>
        </View>
