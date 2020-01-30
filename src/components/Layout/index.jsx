@@ -10,6 +10,7 @@ class Index extends Component {
   defaultProps = {
     isShowNavgate: true,
     isShowTab: true,
+    opacity:0.4,
     page: 'index',
     title: 'index',isBack:true
   }
@@ -34,15 +35,14 @@ class Index extends Component {
 
 
   render() {
-    const { titleHeight, height } = this.state;
-    const { children, isShowTab, isShowNavgate, page, title,isBack } = this.props;
+    const { titleHeight, height} = this.state;
+    const { children, isShowTab, isShowNavgate, page, title,isBack ,opacity} = this.props;
 
     return (
       <View className='layout'>
         {isShowNavgate ? <NavgateBar isBack={isBack} title={title} titleHeight={titleHeight} /> : ''}
 
-        {isShowTab ? <TabBar page={page} /> : ''}
-
+        {isShowTab ? <TabBar opacity={opacity} page={page} /> : ''}
 
         {children}
       </View>
