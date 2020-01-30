@@ -67,12 +67,32 @@
     .list {
         margin-top: 20px;
 
+        button {
+            border          : none;
+            background-color: rgba(255,5,5,0);
+            padding         : 0;
+        }
+
+        button::after {
+            border-bottom: none;
+        }
+
         .item {
             font-size       : 34px;
             padding         : 25px 20px 25px 40px;
             background-color: #fff;
             border-bottom   : 1px solid #eee;
             position        : relative;
+
+            button {
+                position: absolute;
+                top: 0;
+                width : 680px;
+                height: 80px;
+            }
+            button::after {
+                border: none;
+            }
 
             .icon {
                 font-size: 34px;

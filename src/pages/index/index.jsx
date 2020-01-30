@@ -38,7 +38,7 @@ class Index extends Component {
       })
     })
     // Taro.navigateTo({
-    //   url:'/pages/shopping/index'
+    //   url:'/pages/mine/index'
     // })
     // Taro.getUserInfo().then(res=>{
     //   console.log(res)
@@ -73,7 +73,7 @@ class Index extends Component {
     console.log(height)
     console.log(shopping)
     return (
-      <Layout opacity={1} isShowTab={true} isShowNavgate={true} title='卖橘子的小菇凉'>
+      <Layout opacity={1} isShowChat={true} isShowTab={true} isShowNavgate={true} title='卖橘子的小菇凉'>
         <View className='index'>
           {/* <Image className='bg' src='../../assets/image/background-img.png' /> */}
           <Input placeholder='输入商品名称' className='input' />

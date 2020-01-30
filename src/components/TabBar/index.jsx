@@ -1,15 +1,17 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
+import { AtBadge } from 'taro-ui'
 import { goToLink } from '../../utilities/public-mothod'
 import '../../scss/iconfont.scss'
 import './index.scss'
 
 
-@inject('counterStore')
+@inject(stores => ({
+    shopCard: stores.counterStore.shopping
+}))
 @observer
 class Index extends Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -39,6 +41,7 @@ class Index extends Component {
     }
 
     componentDidMount() {
+
         this.initTabBar()
         this.setState({
             isShowTab: true
@@ -87,18 +90,24 @@ class Index extends Component {
     }
 
     render() {
-        const { opacity=0.4 } = this.props;
+        const { opacity = 0.4,shopCard } = this.props;
+        const {shoppingCard} = shopCard ;
+        const {count,card} = shoppingCard;
+        console.log(this.props)
         const { tabParmas, selected, isShowTab } = this.state
         return (
-            <View className={`tab-bar ${isShowTab ? 'show' : 'hide'}`} style={{backgroundColor: `rgba(255, 255, 255, ${opacity})`}}>
+            <View className={`tab-bar ${isShowTab ? 'show' : 'hide'}`} style={{ backgroundColor: `rgba(255, 255, 255, ${opacity})` }}>
                 <View className={`tab-bar__items ${selected === 'home' ? 'active' : ''}`} id='home' onClick={this.toTabBar}>
                     <Text className='iconfont icon'>&#xe60d;</Text>
                     <Text>首页</Text>
                 </View>
-                <View className={`tab-bar__items ${selected === 'shopping' ? 'active' : ''}`} id='shopping' onClick={this.toTabBar}>
-                    <Text className='iconfont icon'>&#xe613;</Text>
-                    <Text className='text'>购物车</Text>
-                </View>
+                <AtBadge value={count} maxValue={99}>
+                    <View className={`tab-bar__items ${selected === 'shopping' ? 'active' : ''}`} id='shopping' onClick={this.toTabBar}>
+                        <Text className='iconfont icon'>&#xe613;</Text>
+                        <Text className='text'>购物车</Text>
+                    </View>
+                </AtBadge>
+
                 <View className={`tab-bar__items ${selected === 'mine' ? 'active' : ''}`} id='mine' onClick={this.toTabBar}>
                     <Text className='iconfont icon'>&#xe6ae;</Text>
                     <Text className='text'>个人中心</Text>

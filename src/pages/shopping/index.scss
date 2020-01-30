@@ -5,3 +5,55 @@
     height  : 100%;
     z-index : -1;
 }
+
+.checkbox{
+    margin-top: 170px;
+    background-color: #fff;
+    .item{
+        padding: 15px 0;
+        display: flex;
+        .image{
+            width:180px;
+            height: 140px;
+        }
+        .content{
+            margin-left: 15px;
+            position: relative;
+            .title {
+                font-size  : 32px;
+                margin-left: -10px;
+                color      : #000;
+            }
+
+            .price {
+                margin-top: 50px;
+                font-size: 34px;
+                color    : #ff7e35;
+                text:nth-of-type(2){
+                    font-size: 28px;
+                    color: #999;
+                    text-decoration: line-through;
+                    padding-left: 15px;
+                }
+            }
+            .count {
+                position: absolute;
+                left   : 320px;
+                top     : 90px;
+                color: #888;
+                .count_icon{
+font-size: 30px;
+color: #1ed3f3;
+                }
+                .count_icon:nth-of-type(1){
+                    color: #aaa;
+                }
+                .count_text{
+                    font-size: 38px;
+                    color: #444;
+                    padding: 0 15px;
+                }
+            }
+        }
+    }
+}

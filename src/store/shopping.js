@@ -43,9 +43,6 @@ class Shopping {
 
     @action.bound
     changeShopCard = (item, type, selected) => {
-        // console.log(item)
-        // console.log(type)
-        // console.log(this.allData)
         let newData = this.allData;
         let parentIndex = 0;
         let childIndex = 0;
@@ -69,15 +66,38 @@ class Shopping {
             }
         })
         console.log(selected);
-        newData[parentIndex].data[childIndex].count += 1;
-        newData[0].data[i].count += 1
+        if (type === 'sub') {
+            if (newData[parentIndex].data[childIndex].count < 1 || newData[parentIndex].data[childIndex].count < 1) {
+                return
+            }
+            newData[parentIndex].data[childIndex].count -= 1;
+            newData[0].data[i].count -= 1
+        } else if (type === 'add') {
+            newData[parentIndex].data[childIndex].count += 1;
+            newData[0].data[i].count += 1
+        }
+
         this.allData = newData
-        this.allData.forEach(select=>{
-            if(select.id === selected.id){
+        this.allData.forEach(select => {
+            if (select.id === selected.id) {
                 this.selected = select;
             }
         })
+        this.getShoppingCard(newData)
+    }
 
+    getShoppingCard = data => {
+        let count = 0;
+        let card = [];
+        data[0].data.forEach(item => {
+            if (item.count > 0) {
+                card.push(item)
+                count += item.count
+            }
+        })
+        this.shoppingCard={
+            count,card
+        }
     }
 
 }

@@ -3,7 +3,7 @@ import { Provider } from '@tarojs/mobx'
 import Index from './pages/index'
 
 import counterStore from './store'
-
+import 'taro-ui/dist/style/index.scss' 
 import './app.scss'
 
 

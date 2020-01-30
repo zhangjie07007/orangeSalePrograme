@@ -63,10 +63,11 @@ class Index extends Component {
               <Text className='text'>优惠券</Text>
               <Text className='iconfont enter'>&#xe629;</Text>
             </View>
-            <View className='item'>
+            <View open-type='contact' className='item'>
               <Text className='iconfont icon'>&#xe642;</Text>
               <Text className='text'>在线客服</Text>
               <Text className='iconfont enter'>&#xe629;</Text>
+              <button open-type='contact' className='btn'/>
             </View>
             <View className='item'>
               <Text className='iconfont icon'>&#xe615;</Text>

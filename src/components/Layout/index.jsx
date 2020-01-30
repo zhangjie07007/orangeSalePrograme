@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import NavgateBar from '../navgateBar'
 import TabBar from '../TabBar'
+import ChatFloat from '../ChatFloat'
 import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
 
@@ -10,9 +11,10 @@ class Index extends Component {
   defaultProps = {
     isShowNavgate: true,
     isShowTab: true,
-    opacity:0.4,
+    isShowChat: true,
+    opacity: 0.4,
     page: 'index',
-    title: 'index',isBack:true
+    title: 'index', isBack: true
   }
 
   constructor(props) {
@@ -35,14 +37,16 @@ class Index extends Component {
 
 
   render() {
-    const { titleHeight, height} = this.state;
-    const { children, isShowTab, isShowNavgate, page, title,isBack ,opacity} = this.props;
+    const { titleHeight, height } = this.state;
+    const { children, isShowTab, isShowChat, isShowNavgate, page, title, isBack, opacity } = this.props;
 
     return (
       <View className='layout'>
         {isShowNavgate ? <NavgateBar isBack={isBack} title={title} titleHeight={titleHeight} /> : ''}
 
         {isShowTab ? <TabBar opacity={opacity} page={page} /> : ''}
+
+        {isShowChat ? <ChatFloat /> : ''}
 
         {children}
       </View>
