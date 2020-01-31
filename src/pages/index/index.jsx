@@ -7,9 +7,6 @@ import { observer, inject } from '@tarojs/mobx'
 import '../../scss/iconfont.scss'
 import './index.scss'
 
-import data from '../../utilities/data'
-
-console.log(data)
 @inject((stores) => ({
   userInfo: stores.counterStore.userInfo,
   shopping: stores.counterStore.shopping,
@@ -51,7 +48,6 @@ class Index extends Component {
       index
     })
     setSelect(item)
-    console.log(item)
 
   }
 
@@ -70,8 +66,6 @@ class Index extends Component {
     const { height = 0, index } = this.state;
     const { shopping } = this.props;
     const { allData, selected } = shopping;
-    console.log(height)
-    console.log(shopping)
     return (
       <Layout opacity={1} isShowChat={true} isShowTab={true} isShowNavgate={true} title='卖橘子的小菇凉'>
         <View className='index'>

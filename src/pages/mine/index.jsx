@@ -17,9 +17,6 @@ class Index extends Component {
     navigationStyle: 'custom',
   };
 
-  componentDidMount() {
-    console.log(this.props)
-  }
   render() {
     const { userInfo } = this.props;
     const { avatarUrl, nickName, gender } = userInfo.userInfo;

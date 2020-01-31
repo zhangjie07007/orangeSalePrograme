@@ -8,6 +8,7 @@ class Shopping {
     @observable shoppingCard = {}
     @observable allData = []
     @observable selected = {}
+    @observable buyList = { list: [] }
     constructor() {
         let allData = [];
         data.forEach(item => {
@@ -37,6 +38,43 @@ class Shopping {
     }
 
     @action.bound
+    setBuyList = (data) => {
+        let isPush = true;
+        let index = 0;
+        let price = 0;
+        let wrapFree = 0;
+        let carriage = 0;
+        let list = this.buyList.list
+        list.forEach((item, i) => {
+            if (item.id === data.id) {
+                isPush = false;
+                index = i;
+            }
+        })
+        // wrapFree:0,
+        //     carriage:0,
+        if (isPush) {
+            list.push(data)
+        } else {
+            list.splice(index, 1)
+        }
+        list.forEach(list => {
+            price += list.price * list.discount * list.count;
+            wrapFree += list.wrapFree;
+            carriage += list.carriage;
+        })
+
+
+        this.buyList = {
+            list, 
+            carriage, 
+            wrapFree, 
+            price, 
+            all: (price + wrapFree + carriage)
+        }
+    }
+
+    @action.bound
     setSelect = (selected) => {
         this.selected = selected
     }
@@ -49,9 +87,7 @@ class Shopping {
         let i = 0
 
         newData.forEach((items, index) => {
-            console.log(item.parentId)
             if (items.id == item.parentId) {
-                console.log(items)
                 parentIndex = index
                 items.data.forEach((data, i) => {
                     if (data.id === item.id) {
@@ -65,7 +101,6 @@ class Shopping {
                 i = index
             }
         })
-        console.log(selected);
         if (type === 'sub') {
             if (newData[parentIndex].data[childIndex].count < 1 || newData[parentIndex].data[childIndex].count < 1) {
                 return
@@ -91,12 +126,12 @@ class Shopping {
         let card = [];
         data[0].data.forEach(item => {
             if (item.count > 0) {
-                card.push(item)
+                card.push({checked:false,...item})
                 count += item.count
             }
         })
-        this.shoppingCard={
-            count,card
+        this.shoppingCard = {
+            count, card
         }
     }
 

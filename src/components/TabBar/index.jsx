@@ -53,7 +53,6 @@ class Index extends Component {
         const { tabParmas } = this.state;
         tabParmas.forEach(item => {
             if (item.src === urlArr[urlArr.length - 1].route) {
-                console.log(item)
                 this.setState({
                     selected: item.id
                 })
@@ -93,7 +92,6 @@ class Index extends Component {
         const { opacity = 0.4,shopCard } = this.props;
         const {shoppingCard} = shopCard ;
         const {count,card} = shoppingCard;
-        console.log(this.props)
         const { tabParmas, selected, isShowTab } = this.state
         return (
             <View className={`tab-bar ${isShowTab ? 'show' : 'hide'}`} style={{ backgroundColor: `rgba(255, 255, 255, ${opacity})` }}>
